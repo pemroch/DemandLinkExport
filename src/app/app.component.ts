@@ -41,6 +41,8 @@ export class AppComponent {
                 }
                 return prev;
             }, {});
+
+            console.log(this.demandLinkData)
         };
 
         reader.readAsBinaryString(target.files[0]);
@@ -67,11 +69,11 @@ export class AppComponent {
                         || (rowIndex > 4 && i < 13 && storeNumber)
                         || (rowIndex > 4 && i > 12 && storeNumber && !this.demandLinkData[storeNumber])
                     ) {
-                        newRow.push(row[i] || '');
-                    } else if (rowIndex > 4 && i > 12 && this.demandLinkData[storeNumber]) {
-                        newRow.push(this.demandLinkData[storeNumber][rows[3][i]] || '');
+                        newRow.push(row[i] || null);
+                    } else if (rowIndex > 4 && i > 12 && this.demandLinkData[storeNumber]) {;
+                        newRow.push(this.demandLinkData[storeNumber][rows[3][i]] || null);
                     } else {
-                        newRow.push('');
+                        newRow.push(null);
                     }
                 }
 
